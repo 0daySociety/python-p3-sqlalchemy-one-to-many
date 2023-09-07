@@ -6,10 +6,11 @@ import random
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-from models import Game, Review
+from models import Game, Review,Base
 
 if __name__ == '__main__':
     engine = create_engine('sqlite:///one_to_many.db')
+    Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
 
